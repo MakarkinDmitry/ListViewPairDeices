@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8B7F06F3-2D0B-4078-93C5-16B798DA4040}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PairsDevice_MeterAndComm.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PairsDevice_MeterAndComm">
+        <MSBuild Projects="PairsDevice_MeterAndComm.dproj"/>
+    </Target>
+    <Target Name="PairsDevice_MeterAndComm:Clean">
+        <MSBuild Projects="PairsDevice_MeterAndComm.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PairsDevice_MeterAndComm:Make">
+        <MSBuild Projects="PairsDevice_MeterAndComm.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PairsDevice_MeterAndComm"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PairsDevice_MeterAndComm:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PairsDevice_MeterAndComm:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
